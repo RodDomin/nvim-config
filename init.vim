@@ -6,6 +6,7 @@ set backspace=indent,eol,start
 set termguicolors
 set encoding=UTF-8
 set background=dark
+set mouse=a
 syntax on
 
 call plug#begin('~/.vim/plugged')
@@ -19,15 +20,16 @@ call plug#begin('~/.vim/plugged')
  Plug 'vim-airline/vim-airline-themes'
  Plug 'dracula/vim', { 'as': 'dracula' }
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
- Plug 'ryanoasis/vim-devicons'
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'vim-test/vim-test'
  Plug 'https://github.com/rcarriga/vim-ultest.git'
+ Plug 'tomasiser/vim-code-dark'
+ Plug 'rescript-lang/vim-rescript'
 call plug#end()
 
 " airline
-
+let g:airline_theme = 'dracula'
 
 " vim ul test
 let test#javascript#jest#options = "--color=always"
@@ -66,6 +68,7 @@ nnoremap <C-x> :tabnext<CR>
 " nerdtree
 nnoremap <C-p> :NERDTreeToggle<CR>
 
+let g:NERDTreeWinSize = 50
 let g:NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -91,3 +94,8 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " moving lines
 nnoremap <A-up> :m .-2<CR>
 nnoremap <A-down> :m .+1<CR>
+
+tnoremap <Esc> <C-\><C-n>
+
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip', @y)<CR>
+
