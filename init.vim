@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
  Plug 'dracula/vim', { 'as': 'dracula' }
+ Plug 'ryanoasis/vim-devicons'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
@@ -26,10 +27,21 @@ call plug#begin('~/.vim/plugged')
  Plug 'https://github.com/rcarriga/vim-ultest.git'
  Plug 'tomasiser/vim-code-dark'
  Plug 'rescript-lang/vim-rescript'
+ Plug 'nvim-treesitter/nvim-treesitter-angular'
+ Plug 'ThePrimeagen/vim-be-good'
+ Plug 'cakebaker/scss-syntax.vim'
+ Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " airline
 let g:airline_theme = 'dracula'
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamecollapse = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " vim ul test
 let test#javascript#jest#options = "--color=always"
